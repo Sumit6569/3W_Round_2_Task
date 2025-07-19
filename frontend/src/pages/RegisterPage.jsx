@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { Link } from "react-router-dom";
 export default function RegisterPage() {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -77,6 +77,12 @@ export default function RegisterPage() {
             required
           />
 
+
+          <Link to="/login">
+           
+              Already have an account? Login
+          
+          </Link>
           <button type="submit" disabled={loading}>
             {loading ? "Registering..." : "Register"}
           </button>

@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Dashboard.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { Link } from "react-router-dom";
 export default function Dashboard() {
   const [accounts, setAccounts] = useState([]);
   const [form, setForm] = useState({
@@ -63,9 +63,9 @@ export default function Dashboard() {
       <h3 className="account-title">Your Accounts</h3>
 
 
-      <button className="admin-button" onClick={() => window.location.href = "/admin"}>
-        Go to Admin Panel
-      </button>
+    <Link to="/admin">
+      <button className="admin-button">Go to Admin Panel</button>
+    </Link>
 
       <div className="form-container">
         <input
