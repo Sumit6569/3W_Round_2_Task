@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import axios from "axios";
+import { Link } from "react-router-dom";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -72,6 +73,16 @@ export default function LoginPage() {
           <button type="submit" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
+          <button
+            type="button"
+            onClick={() => {
+              setEmail("");
+              setPassword("");
+            }}
+          >
+            Clear
+          </button>
+          <Link to="/register">Don't have an account? Register</Link>
         </form>
       </div>
 

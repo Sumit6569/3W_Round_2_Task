@@ -59,6 +59,13 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <h2 className="dashboard-title">User Dashboard</h2>
+      <ToastContainer position="top-right" autoClose={3000} />
+      <h3 className="account-title">Your Accounts</h3>
+
+
+      <button className="admin-button" onClick={() => window.location.href = "/admin"}>
+        Go to Admin Panel
+      </button>
 
       <div className="form-container">
         <input
