@@ -19,11 +19,15 @@ export default function LoginPage() {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+
+      const res = await fetch(
+        "https://threew-round-2-task.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
 
@@ -73,7 +77,7 @@ export default function LoginPage() {
 
       <ToastContainer position="top-right" autoClose={3000} />
 
-      {/* Inline CSS */}
+      {/* Inline CSS styling */}
       <style>{`
         .login-container {
           display: flex;
@@ -87,7 +91,7 @@ export default function LoginPage() {
           background: white;
           padding: 30px;
           border-radius: 10px;
-          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          box-shadow: 0 0 15px rgba(0,0,0,0.1);
           width: 100%;
           max-width: 400px;
           display: flex;
@@ -98,17 +102,23 @@ export default function LoginPage() {
         .login-form h2 {
           text-align: center;
           margin-bottom: 10px;
+          color: #333;
         }
 
         .login-form input {
-          padding: 10px;
+          padding: 12px;
           font-size: 16px;
           border: 1px solid #ccc;
           border-radius: 6px;
         }
 
+        .login-form input:focus {
+          border-color: #007bff;
+          outline: none;
+        }
+
         .login-form button {
-          padding: 10px;
+          padding: 12px;
           font-size: 16px;
           background-color: #007bff;
           color: white;

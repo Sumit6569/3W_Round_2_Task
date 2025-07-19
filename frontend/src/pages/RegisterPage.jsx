@@ -25,11 +25,14 @@ export default function RegisterPage() {
       toast.error("Please enter a valid email address.");
       return;
     }
-    
+
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post(
+        "https://threew-round-2-task.onrender.com/api/auth/register",
+        form
+      );
       toast.success("Registered successfully!");
       setTimeout(() => navigate("/login"), 1500);
     } catch (err) {

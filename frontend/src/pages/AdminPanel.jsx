@@ -21,6 +21,8 @@ export default function AdminPanel() {
   const token = localStorage.getItem("token");
   const headers = { Authorization: `Bearer ${token}` };
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     fetchAccounts();
   }, []);
@@ -28,7 +30,7 @@ export default function AdminPanel() {
   const fetchAccounts = () => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/api/banks/admin/all", { headers })
+      .get(`${API_BASE_URL}/api/banks/admin/all`, { headers })
       .then((res) => setAllAccounts(res.data))
       .catch((err) => {
         console.error("Error fetching accounts", err);
@@ -93,7 +95,7 @@ export default function AdminPanel() {
 
     try {
       setSubmitting(true);
-      await axios.put(`http://localhost:5000/api/banks/${editId}`, editForm, {
+      await axios.put(`${API_BASE_URL}/api/banks/${editId}`, editForm, {
         headers,
       });
       fetchAccounts();

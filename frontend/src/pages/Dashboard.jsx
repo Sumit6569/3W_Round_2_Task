@@ -19,15 +19,19 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/banks", { headers })
+      .get("https://threew-round-2-task.onrender.com/api/banks", { headers })
       .then((res) => setAccounts(res.data))
       .catch(() => toast.error("Failed to load accounts."));
   }, []);
 
   const handleAdd = async () => {
     try {
-      await axios.post("http://localhost:5000/api/banks", form, { headers });
-      const res = await axios.get("http://localhost:5000/api/banks", {
+      await axios.post(
+        "https://threew-round-2-task.onrender.com/api/banks",
+        form,
+        { headers }
+      );
+      const res = await axios.get("https://threew-round-2-task.onrender.com/api/banks", {
         headers,
       });
       setAccounts(res.data);
@@ -40,7 +44,10 @@ export default function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/banks/${id}`, { headers });
+      await axios.delete(
+        `https://threew-round-2-task.onrender.com/api/banks/${id}`,
+        { headers }
+      );
       setAccounts(accounts.filter((acc) => acc._id !== id));
       toast.success("Account deleted successfully!");
     } catch (err) {
